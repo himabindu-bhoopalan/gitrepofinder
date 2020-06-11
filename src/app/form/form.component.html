@@ -1,0 +1,11 @@
+<div class="form1">
+  <div class="alert alert-success col-lg-4" role="alert">
+    Enter Github Username
+  </div>
+  <div class="row m-5">
+    <form [formGroup]="repoform" class="form my-2 my-lg-0" (submit)='navrepo()'>
+      <input class="form-control mr-sm-2" formControlName="gitserch" type="search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>

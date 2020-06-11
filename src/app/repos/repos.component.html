@@ -1,0 +1,45 @@
+<div class="alert alert-dark" role="alert">
+  {{userData.login}}
+  <span><button type="button" class="btn btn-primary">{{userData.followers}} followers </button>
+    <button type="button" class="btn btn-secondary">{{userData.following}} following </button>
+    <button type="button" class="btn btn-primary">{{userData.public_repos}} Repositories</button>
+  </span>
+  <div>
+    <img [src]="userData.avatar_url"  alt="git repo avatar" class="img-thumbnail">
+  </div>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <!-- <th scope="col">S.no</th> -->
+      <th scope="col">REPOSITORY NAME</th>
+      <th scope="col">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of repoData|slice:startIndex:lastIndex;">
+      <!-- <th scope="row">{{po+1}}</th> -->
+      <td>{{i.name}}</td>
+      <td><a href="{{i.html_url}}" target="_blank">{{i.html_url}}</a></td>
+    </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation example" >
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li *ngFor="let item of getArray(repoData.length);let po =index" class="page-item">
+      <a class="page-link" (click)="updateIndex(po)">{{po+1}}</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
